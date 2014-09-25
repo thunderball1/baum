@@ -98,7 +98,7 @@ class InstallCommand extends Command {
    * @return string
    */
   protected function writeModel($name) {
-    $output = pathinfo($this->modeler->create($name, $this->getModelsPath()), PATHINFO_FILENAME);
+    $output = pathinfo($this->modeler->create($name, $this->laravel['path']), PATHINFO_FILENAME);
 
     $this->line("      <fg=green;options=bold>create</fg=green;options=bold>  $output");
   }
@@ -109,7 +109,7 @@ class InstallCommand extends Command {
    * @return string
    */
   protected function getMigrationsPath() {
-    return $this->laravel['path'].'/database/migrations';
+    return $this->laravel['path'].'/../database/migrations';
   }
 
   /**
